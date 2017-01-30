@@ -113,7 +113,8 @@ class Build extends Command
 
         if (!$this->getBuildOption(self::BUILD_OPT_SKIP_DI_COMPILATION)) {
             $this->env->log("Running DI compilation");
-            $this->env->execute("cd bin/; /usr/bin/php ./magento setup:di:compile");
+            $this->env->execute("cd bin/; /usr/bin/php ./magento setup:di:compile -v");
+            $this->env->log("DI completed");
         } else {
             $this->env->log("Skip running DI compilation");
         }
